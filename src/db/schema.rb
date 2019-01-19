@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_06_081041) do
+ActiveRecord::Schema.define(version: 2019_01_19_090857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,75 @@ ActiveRecord::Schema.define(version: 2019_01_06_081041) do
   create_table "car_brands", force: :cascade do |t|
     t.string "code", limit: 5
     t.string "name", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "car_models", force: :cascade do |t|
+    t.string "name", limit: 20
+    t.integer "quantity_of_seat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "car_rental_contracts", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "rent_driver"
+    t.decimal "price"
+    t.string "unit_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "car_number_plate", limit: 15
+    t.decimal "origin_price"
+    t.string "status"
+    t.decimal "rental_price"
+    t.boolean "rent_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.boolean "gender"
+    t.date "dob"
+    t.string "address"
+    t.string "tel"
+    t.string "identity_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drivers", force: :cascade do |t|
+    t.string "license_no"
+    t.string "class_license"
+    t.date "date_issue"
+    t.date "date_expired"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "investment_contracts", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.float "discount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "passengers", force: :cascade do |t|
+    t.string "name"
+    t.date "dob"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_types", force: :cascade do |t|
+    t.string "user_type"
+    t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
