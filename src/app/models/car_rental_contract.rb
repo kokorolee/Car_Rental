@@ -1,0 +1,2 @@
+class CarRentalContract < ApplicationRecord
+end

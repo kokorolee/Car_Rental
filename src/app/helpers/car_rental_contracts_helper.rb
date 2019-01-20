@@ -1,0 +1,2 @@
+module CarRentalContractsHelper
+end
