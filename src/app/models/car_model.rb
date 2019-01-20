@@ -10,6 +10,8 @@
 #
 
 class CarModel < ApplicationRecord
+  belong_to :car_brand
+  has_many :cars
   validates :name, length: { maximum: 20 }, presence: true
   validates :quantity_of_seat,  presence: true
   validates_numericality_of :quantity_of_seat, less_than_or_equal_to: 45, greater_than_or_equal_to: 2
