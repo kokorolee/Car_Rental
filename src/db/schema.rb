@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "price_lists", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
