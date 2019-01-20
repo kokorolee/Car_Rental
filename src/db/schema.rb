@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "drivers", force: :cascade do |t|
     t.string "license_no"
     t.string "class_license"
