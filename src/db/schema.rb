@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "car_rental_contracts", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
 
   create_table "customers", force: :cascade do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "investment_contracts", force: :cascade do |t|
     t.date "start_date"
@@ -112,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "users", force: :cascade do |t|
     t.string "name"
