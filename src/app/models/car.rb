@@ -13,8 +13,9 @@
 #
 
 class Car < ApplicationRecord
-  belong_to :car_model
+  belongs_to :car_model
   has_many :car_rental_contracts
+  has_many :drivers
 
   validates :car_number_plate, length: { maximum: 15 }, presence: true
   validates :origin_price,  presence: true
