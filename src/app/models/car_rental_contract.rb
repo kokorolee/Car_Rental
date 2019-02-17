@@ -1,5 +1,5 @@
 class CarRentalContract < ApplicationRecord
-  belong_to :car
-  belong_to :user
-  belong_to :customer
+  has_many :cars
+  belongs_to :admin
+  belongs_to :customer
 end
