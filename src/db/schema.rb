@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
   create_table "car_models", force: :cascade do |t|
     t.string "name", limit: 20
     t.integer "quantity_of_seat"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "car_rental_contracts", force: :cascade do |t|
     t.date "start_date"
@@ -52,18 +52,15 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "cars", force: :cascade do |t|
     t.string "car_number_plate", limit: 15
-    t.decimal "origin_price"
+    t.decimal "origin_price", precision: 5, scale: 2
     t.string "status"
-    t.decimal "rental_price"
-    t.boolean "rent_status"
+    t.decimal "rental_price", precision: 5, scale: 2
+    t.boolean "rent_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -76,7 +73,6 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "drivers", force: :cascade do |t|
     t.string "license_no"
     t.string "class_license"
@@ -85,7 +81,6 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "investment_contracts", force: :cascade do |t|
     t.date "start_date"
@@ -102,7 +97,6 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "price_lists", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -117,7 +111,6 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "gender"
@@ -128,6 +121,5 @@ ActiveRecord::Schema.define(version: 2019_01_19_095344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
 end
