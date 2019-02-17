@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    Car Brand
+    <%= form.collection_select :car_brand_id, CarBrand.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :quantity_of_seat %>
     <%= form.number_field :quantity_of_seat %>
   </div>
