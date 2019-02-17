@@ -18,6 +18,10 @@
 
   <div class="field">
     Car Brand
+    <%#  add below line to load association %>
+    <%#  car_brand_id is params in controller %>
+    <%#  :id -> sent to server and save%>
+    <%#  :name -> display name in html layout%>
     <%= form.collection_select :car_brand_id, CarBrand.all, :id, :name %>
   </div>
 
