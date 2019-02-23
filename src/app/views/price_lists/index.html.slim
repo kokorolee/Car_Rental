@@ -1,0 +1,27 @@
+p#notice
+  = notice
+h1
+  | Price Lists
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Price
+      th[colspan="3"]
+  tbody
+    - @price_lists.each do |price_list|
+      tr
+        td
+          = price_list.name
+        td
+          = price_list.price
+        td
+          = link_to 'Show', price_list
+        td
+          = link_to 'Edit', edit_price_list_path(price_list)
+        td
+          = link_to 'Destroy', price_list, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Price List', new_price_list_path

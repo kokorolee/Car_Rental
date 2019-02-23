@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Code:
+  = @car_brand.try(:code)
+p
+  strong
+    | Name:
+  = @car_brand.try(:name)
+= link_to 'Edit', edit_car_brand_path(@car_brand)
+|  | 
+= link_to 'Back', car_brands_path

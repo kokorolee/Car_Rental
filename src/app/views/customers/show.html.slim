@@ -1,0 +1,29 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @customer.name
+p
+  strong
+    | Gender:
+  = @customer.gender
+p
+  strong
+    | Dob:
+  = @customer.dob
+p
+  strong
+    | Address:
+  = @customer.address
+p
+  strong
+    | Tel:
+  = @customer.tel
+p
+  strong
+    | Identity no:
+  = @customer.identity_no
+= link_to 'Edit', edit_customer_path(@customer)
+|  | 
+= link_to 'Back', customers_path

@@ -1,0 +1,31 @@
+p#notice
+  = notice
+h1
+  | Investment Contracts
+table
+  thead
+    tr
+      th
+        | Start date
+      th
+        | End date
+      th
+        | Discount
+      th[colspan="3"]
+  tbody
+    - @investment_contracts.each do |investment_contract|
+      tr
+        td
+          = investment_contract.start_date
+        td
+          = investment_contract.end_date
+        td
+          = investment_contract.discount
+        td
+          = link_to 'Show', investment_contract
+        td
+          = link_to 'Edit', edit_investment_contract_path(investment_contract)
+        td
+          = link_to 'Destroy', investment_contract, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Investment Contract', new_investment_contract_path

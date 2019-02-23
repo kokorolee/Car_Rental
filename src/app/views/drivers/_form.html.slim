@@ -1,0 +1,20 @@
+= form_with(model: driver, local: true) do |form|
+  - if driver.errors.any?
+      ul
+        - driver.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = form.label :license_no
+    = form.text_field :license_no, class: 'form-control'
+  .form-group
+    = form.label :class_license
+    = form.text_field :class_license, class: 'form-control'
+  .form-group
+    = form.label :date_issue
+    = form.date_select :date_issue, class: 'form-control'
+  .form-group
+    = form.label :date_expired
+    = form.date_select :date_expired, class: 'form-control'
+  .actions
+    = form.submit

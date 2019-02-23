@@ -1,0 +1,25 @@
+p#notice
+  = notice
+p
+  strong
+    | Start date:
+  = @car_rental_contract.start_date
+p
+  strong
+    | End date:
+  = @car_rental_contract.end_date
+p
+  strong
+    | Rent driver:
+  = @car_rental_contract.rent_driver
+p
+  strong
+    | Price:
+  = @car_rental_contract.price
+p
+  strong
+    | Unit price:
+  = @car_rental_contract.unit_price
+= link_to 'Edit', edit_car_rental_contract_path(@car_rental_contract)
+|  | 
+= link_to 'Back', car_rental_contracts_path

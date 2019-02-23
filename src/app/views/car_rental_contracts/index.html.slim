@@ -1,0 +1,39 @@
+p#notice
+  = notice
+h1
+  | Car Rental Contracts
+table
+  thead
+    tr
+      th
+        | Start date
+      th
+        | End date
+      th
+        | Rent driver
+      th
+        | Price
+      th
+        | Unit price
+      th[colspan="3"]
+  tbody
+    - @car_rental_contracts.each do |car_rental_contract|
+      tr
+        td
+          = car_rental_contract.start_date
+        td
+          = car_rental_contract.end_date
+        td
+          = car_rental_contract.rent_driver
+        td
+          = car_rental_contract.price
+        td
+          = car_rental_contract.unit_price
+        td
+          = link_to 'Show', car_rental_contract
+        td
+          = link_to 'Edit', edit_car_rental_contract_path(car_rental_contract)
+        td
+          = link_to 'Destroy', car_rental_contract, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Car Rental Contract', new_car_rental_contract_path

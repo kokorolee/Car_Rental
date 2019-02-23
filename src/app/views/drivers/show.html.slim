@@ -1,0 +1,21 @@
+p#notice
+  = notice
+p
+  strong
+    | License no:
+  = @driver.license_no
+p
+  strong
+    | Class license:
+  = @driver.class_license
+p
+  strong
+    | Date issue:
+  = @driver.date_issue
+p
+  strong
+    | Date expired:
+  = @driver.date_expired
+= link_to 'Edit', edit_driver_path(@driver)
+|  | 
+= link_to 'Back', drivers_path

@@ -1,0 +1,9 @@
+= form_with(model: member, local: true) do |form|
+  - if member.errors.any?
+    #error_explanation
+      ul
+        - member.errors.full_messages.each do |message|
+          li
+            = message
+  .actions
+    = form.submit

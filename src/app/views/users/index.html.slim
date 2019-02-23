@@ -1,0 +1,43 @@
+p#notice
+  = notice
+h1
+  | Users
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Gender
+      th
+        | Dob
+      th
+        | Address
+      th
+        | Tel
+      th
+        | Identity no
+      th[colspan="3"]
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = user.name
+        td
+          = user.gender
+        td
+          = user.dob
+        td
+          = user.address
+        td
+          = user.tel
+        td
+          = user.identity_no
+        td
+          = link_to 'Show', user
+        td
+          = link_to 'Edit', edit_user_path(user)
+        td
+          = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New User', new_user_path
