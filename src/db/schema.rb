@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_02_17_152328) do
   create_table "car_models", force: :cascade do |t|
     t.string "name", limit: 20
     t.integer "quantity_of_seat"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "car_brand_id"
@@ -55,10 +56,10 @@ ActiveRecord::Schema.define(version: 2019_02_17_152328) do
 
   create_table "cars", force: :cascade do |t|
     t.string "car_number_plate", limit: 15
-    t.decimal "origin_price"
+    t.decimal "origin_price", precision: 5, scale: 2
     t.string "status"
-    t.decimal "rental_price"
-    t.boolean "rent_status"
+    t.decimal "rental_price", precision: 5, scale: 2
+    t.boolean "rent_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
