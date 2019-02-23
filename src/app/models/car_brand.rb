@@ -12,4 +12,6 @@
 class CarBrand < ApplicationRecord
   has_many :car_models, dependent: :destroy
   # has_many :cars, through :car_models
+  validates :code, presence: true, length: { is: 5 }
+
 end

@@ -1,9 +1,6 @@
 <%= form_with(model: car_brand, local: true) do |form| %>
   <% if car_brand.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(car_brand.errors.count, "error") %>
-        prohibited this car_brand from being saved:</h2>
-
       <ul>
       <% car_brand.errors.full_messages.each do |message| %>
         <li><%= message %></li>
