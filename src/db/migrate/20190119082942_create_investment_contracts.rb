@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateInvestmentContracts < ActiveRecord::Migration[5.2]
   def change
     create_table :investment_contracts do |t|
