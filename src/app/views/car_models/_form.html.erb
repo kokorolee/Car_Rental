@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
     Car Brand
     <%#  add below line to load association %>
     <%#  car_brand_id is params in controller %>
@@ -24,6 +19,13 @@
     <%#  :name -> display name in html layout%>
     <%= form.collection_select :car_brand_id, CarBrand.all, :id, :name %>
   </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
 
   <div class="field">
     <%= form.label :quantity_of_seat %>
