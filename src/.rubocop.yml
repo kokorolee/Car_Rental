@@ -1,0 +1,68 @@
+# inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+
+Rails:
+  Enabled: true
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - 'Gemfile'
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+BracesAroundHashParameters:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 22
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - 'spec/**/*'
+    - 'app/*/concerns/*'
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - internal
+    - staging

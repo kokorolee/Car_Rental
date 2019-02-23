@@ -1,5 +1,5 @@
 class UserTypesController < ApplicationController
-  before_action :set_user_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_type, only: %i[show edit update destroy]
 
   # GET /user_types
   # GET /user_types.json
@@ -9,8 +9,7 @@ class UserTypesController < ApplicationController
 
   # GET /user_types/1
   # GET /user_types/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_types/new
   def new
@@ -18,8 +17,7 @@ class UserTypesController < ApplicationController
   end
 
   # GET /user_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_types
   # POST /user_types.json
@@ -62,13 +60,14 @@ class UserTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_type
-      @user_type = UserType.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_type_params
-      params.require(:user_type).permit(:user_type, :notes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_type
+    @user_type = UserType.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_type_params
+    params.require(:user_type).permit(:user_type, :notes)
+  end
 end

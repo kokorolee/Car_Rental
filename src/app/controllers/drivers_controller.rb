@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-  before_action :set_driver, only: [:show, :edit, :update, :destroy]
+  before_action :set_driver, only: %i[show edit update destroy]
 
   # GET /drivers
   # GET /drivers.json
@@ -9,8 +9,7 @@ class DriversController < ApplicationController
 
   # GET /drivers/1
   # GET /drivers/1.json
-  def show
-  end
+  def show; end
 
   # GET /drivers/new
   def new
@@ -18,8 +17,7 @@ class DriversController < ApplicationController
   end
 
   # GET /drivers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /drivers
   # POST /drivers.json
@@ -62,13 +60,14 @@ class DriversController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_driver
-      @driver = Driver.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def driver_params
-      params.require(:driver).permit(:license_no, :class_license, :date_issue, :date_expired)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_driver
+    @driver = Driver.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def driver_params
+    params.require(:driver).permit(:license_no, :class_license, :date_issue, :date_expired)
+  end
 end

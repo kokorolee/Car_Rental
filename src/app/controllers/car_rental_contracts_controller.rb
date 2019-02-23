@@ -1,5 +1,5 @@
 class CarRentalContractsController < ApplicationController
-  before_action :set_car_rental_contract, only: [:show, :edit, :update, :destroy]
+  before_action :set_car_rental_contract, only: %i[show edit update destroy]
 
   # GET /car_rental_contracts
   # GET /car_rental_contracts.json
@@ -9,8 +9,7 @@ class CarRentalContractsController < ApplicationController
 
   # GET /car_rental_contracts/1
   # GET /car_rental_contracts/1.json
-  def show
-  end
+  def show; end
 
   # GET /car_rental_contracts/new
   def new
@@ -18,8 +17,7 @@ class CarRentalContractsController < ApplicationController
   end
 
   # GET /car_rental_contracts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /car_rental_contracts
   # POST /car_rental_contracts.json
@@ -62,13 +60,14 @@ class CarRentalContractsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car_rental_contract
-      @car_rental_contract = CarRentalContract.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def car_rental_contract_params
-      params.require(:car_rental_contract).permit(:start_date, :end_date, :rent_driver, :price, :unit_price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_car_rental_contract
+    @car_rental_contract = CarRentalContract.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def car_rental_contract_params
+    params.require(:car_rental_contract).permit(:start_date, :end_date, :rent_driver, :price, :unit_price)
+  end
 end

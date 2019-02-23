@@ -1,5 +1,5 @@
 class PriceListsController < ApplicationController
-  before_action :set_price_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_price_list, only: %i[show edit update destroy]
 
   # GET /price_lists
   # GET /price_lists.json
@@ -9,8 +9,7 @@ class PriceListsController < ApplicationController
 
   # GET /price_lists/1
   # GET /price_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /price_lists/new
   def new
@@ -18,8 +17,7 @@ class PriceListsController < ApplicationController
   end
 
   # GET /price_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /price_lists
   # POST /price_lists.json
@@ -62,13 +60,14 @@ class PriceListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_price_list
-      @price_list = PriceList.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def price_list_params
-      params.require(:price_list).permit(:name, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_price_list
+    @price_list = PriceList.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def price_list_params
+    params.require(:price_list).permit(:name, :price)
+  end
 end
