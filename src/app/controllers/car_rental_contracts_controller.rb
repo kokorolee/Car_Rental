@@ -27,10 +27,8 @@ class CarRentalContractsController < ApplicationController
     respond_to do |format|
       if @car_rental_contract.save
         format.html { redirect_to @car_rental_contract, notice: 'Car rental contract was successfully created.' }
-        format.json { render :show, status: :created, location: @car_rental_contract }
       else
         format.html { render :new }
-        format.json { render json: @car_rental_contract.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +39,8 @@ class CarRentalContractsController < ApplicationController
     respond_to do |format|
       if @car_rental_contract.update(car_rental_contract_params)
         format.html { redirect_to @car_rental_contract, notice: 'Car rental contract was successfully updated.' }
-        format.json { render :show, status: :ok, location: @car_rental_contract }
       else
         format.html { render :edit }
-        format.json { render json: @car_rental_contract.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +51,6 @@ class CarRentalContractsController < ApplicationController
     @car_rental_contract.destroy
     respond_to do |format|
       format.html { redirect_to car_rental_contracts_url, notice: 'Car rental contract was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

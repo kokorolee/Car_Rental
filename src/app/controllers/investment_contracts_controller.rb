@@ -27,10 +27,8 @@ class InvestmentContractsController < ApplicationController
     respond_to do |format|
       if @investment_contract.save
         format.html { redirect_to @investment_contract, notice: 'Investment contract was successfully created.' }
-        format.json { render :show, status: :created, location: @investment_contract }
       else
         format.html { render :new }
-        format.json { render json: @investment_contract.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +39,8 @@ class InvestmentContractsController < ApplicationController
     respond_to do |format|
       if @investment_contract.update(investment_contract_params)
         format.html { redirect_to @investment_contract, notice: 'Investment contract was successfully updated.' }
-        format.json { render :show, status: :ok, location: @investment_contract }
       else
         format.html { render :edit }
-        format.json { render json: @investment_contract.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +51,6 @@ class InvestmentContractsController < ApplicationController
     @investment_contract.destroy
     respond_to do |format|
       format.html { redirect_to investment_contracts_url, notice: 'Investment contract was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

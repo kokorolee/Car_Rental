@@ -27,10 +27,8 @@ class PriceListsController < ApplicationController
     respond_to do |format|
       if @price_list.save
         format.html { redirect_to @price_list, notice: 'Price list was successfully created.' }
-        format.json { render :show, status: :created, location: @price_list }
       else
         format.html { render :new }
-        format.json { render json: @price_list.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +39,8 @@ class PriceListsController < ApplicationController
     respond_to do |format|
       if @price_list.update(price_list_params)
         format.html { redirect_to @price_list, notice: 'Price list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @price_list }
       else
         format.html { render :edit }
-        format.json { render json: @price_list.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +51,6 @@ class PriceListsController < ApplicationController
     @price_list.destroy
     respond_to do |format|
       format.html { redirect_to price_lists_url, notice: 'Price list was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -27,10 +27,8 @@ class CarModelsController < ApplicationController
     respond_to do |format|
       if @car_model.save
         format.html { redirect_to @car_model, notice: 'Car model was successfully created.' }
-        format.json { render :show, status: :created, location: @car_model }
       else
         format.html { render :new }
-        format.json { render json: @car_model.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +39,8 @@ class CarModelsController < ApplicationController
     respond_to do |format|
       if @car_model.update(car_model_params)
         format.html { redirect_to @car_model, notice: 'Car model was successfully updated.' }
-        format.json { render :show, status: :ok, location: @car_model }
       else
         format.html { render :edit }
-        format.json { render json: @car_model.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +51,6 @@ class CarModelsController < ApplicationController
     @car_model.destroy
     respond_to do |format|
       format.html { redirect_to car_models_url, notice: 'Car model was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
