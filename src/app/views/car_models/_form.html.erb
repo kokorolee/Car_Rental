@@ -1,7 +1,8 @@
 <%= form_with(model: car_model, local: true) do |form| %>
   <% if car_model.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(car_model.errors.count, "error") %> prohibited this car_model from being saved:</h2>
+      <h2><%= pluralize(car_model.errors.count, "error") %>
+        prohibited this car_model from being saved:</h2>
 
       <ul>
       <% car_model.errors.full_messages.each do |message| %>
@@ -12,9 +13,20 @@
   <% end %>
 
   <div class="field">
+    Car Brand
+    <%#  add below line to load association %>
+    <%#  car_brand_id is params in controller %>
+    <%#  :id -> sent to server and save%>
+    <%#  :name -> display name in html layout%>
+    <%= form.collection_select :car_brand_id, CarBrand.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
+
 
   <div class="field">
     <%= form.label :quantity_of_seat %>

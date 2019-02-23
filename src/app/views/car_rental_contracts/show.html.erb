@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @car_rental_contract.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @car_rental_contract.end_date %>
+</p>
+
+<p>
+  <strong>Rent driver:</strong>
+  <%= @car_rental_contract.rent_driver %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @car_rental_contract.price %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @car_rental_contract.unit_price %>
+</p>
+
+<%= link_to 'Edit', edit_car_rental_contract_path(@car_rental_contract) %> |
+<%= link_to 'Back', car_rental_contracts_path %>
