@@ -5,7 +5,7 @@ p#notice
       .col-sm-6
         h2
           | Manage
-          b CarBrand
+          b Employees
       .col-sm-6
         = link_to new_car_brand_path, class: 'btn btn-success' do
           i.material-icons &#xE147
@@ -13,21 +13,23 @@ p#notice
 table.table.table-striped.table-hover
   thead
     tr
-      th No.
+      th
+        | No.
       th Code
       th Name
       th Actions
     tbody
       - @car_brands.each_with_index do |car_brand, index|
-        td
-          = index + 1
-        td
-          = car_brand.code
-        td
-          = car_brand.name
-        td
-          = link_to edit_car_brand_path(car_brand) do
-            i.material-icons &#xE254
-          = link_to car_brand, method: :delete, data: { confirm: 'Are you sure?' } do
-            i.material-icons &#xE872
+        tr
+          td
+            = index + 1
+          td
+            = car_brand.code
+          td
+            = car_brand.name
+          td
+            = link_to edit_car_brand_path(car_brand) do
+              i.material-icons &#xE254
+            = link_to car_brand, method: :delete, data: { confirm: 'Are you sure?' } do
+              i.material-icons &#xE872
 br
