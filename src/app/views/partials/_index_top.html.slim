@@ -1,0 +1,12 @@
+p#notice
+  = notice
+  - model_name = model.name.underscore
+  .table-title
+    .row
+      .col-sm-6
+        h2
+          | Manage #{model_name.humanize}
+      .col-sm-6
+        = link_to url_for(:action => 'new'), class: 'btn btn-success' do
+         i.material-icons &#xE147
+         span New #{model_name.humanize}
