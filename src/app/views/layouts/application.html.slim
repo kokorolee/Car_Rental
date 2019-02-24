@@ -7,6 +7,10 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet" /
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /
+
   body
     nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
       a.navbar-brand.col-sm-3.col-md-2.mr-0[href="#!"]
@@ -24,6 +28,8 @@ html
       .row
         = render "layouts/sidebar", models: @models
         main.col-md-8.ml-sm-auto.col-lg-9.pt-3.px-4[role="main"]
-          = yield
+          .container
+            .table-wrapper
+              = yield
     script
       |  feather.replace()

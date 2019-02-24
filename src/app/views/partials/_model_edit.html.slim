@@ -1,0 +1,23 @@
+#editEmployeeModal.modal.fade
+  .modal-dialog
+    .modal-content
+      form
+        .modal-header
+          h4.modal-title Edit Employee
+          button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+        .modal-body
+          .form-group
+            label Name
+            input.form-control required="" type="text" /
+          .form-group
+            label Email
+            input.form-control required="" type="email" /
+          .form-group
+            label Address
+            textarea.form-control required=""
+          .form-group
+            label Phone
+            input.form-control required="" type="text" /
+        .modal-footer
+          input.btn.btn-default data-dismiss="modal" type="button" value="Cancel" /
+          input.btn.btn-info type="submit" value="Save" /
