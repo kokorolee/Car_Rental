@@ -1,0 +1,15 @@
+= simple_form_for @car_brand do |form|
+  - if @car_brand.errors.any?
+    #error_explanation
+      ul
+        - @car_brand.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = form.label :code
+    = form.text_field :code, class: 'form-control'
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: 'form-control'
+  .actions
+    = form.submit

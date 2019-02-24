@@ -1,0 +1,25 @@
+p#notice
+  = notice
+p
+  strong
+    | Car number plate:
+  = @car.car_number_plate
+p
+  strong
+    | Origin price:
+  = @car.origin_price
+p
+  strong
+    | Status:
+  = @car.status
+p
+  strong
+    | Rental price:
+  = @car.rental_price
+p
+  strong
+    | Rent status:
+  = @car.rent_status
+= link_to 'Edit', edit_car_path(@car)
+|  | 
+= link_to 'Back', cars_path

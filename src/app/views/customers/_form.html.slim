@@ -1,0 +1,27 @@
+= form_with(model: customer, local: true) do |form|
+  - if customer.errors.any?
+    #error_explanation
+      ul
+        - customer.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: 'form-control'
+  .form-group
+    = form.label :gender
+    = form.check_box :gender, class: 'form-control'
+  .form-group
+    = form.label :dob
+    = form.date_select :dob, class: 'form-control'
+  .form-group
+    = form.label :address
+    = form.text_field :address, class: 'form-control'
+  .form-group
+    = form.label :tel
+    = form.text_field :tel, class: 'form-control'
+  .form-group
+    = form.label :identity_no
+    = form.text_field :identity_no, class: 'form-control'
+  .actions
+    = form.submit

@@ -1,0 +1,14 @@
+= form_with(model: price_list, local: true) do |form|
+  - if price_list.errors.any?
+      ul
+        - price_list.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: 'form-control'
+  .form-group
+    = form.label :price
+    = form.text_field :price, class: 'form-control'
+  .actions
+    = form.submit
