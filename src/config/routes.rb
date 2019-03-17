@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :car_rental_contracts
     resources :investment_contracts
     resources :drivers
-    resources :user_types
     resources :cars
     resources :car_models
     resources :car_brands
