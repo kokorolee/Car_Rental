@@ -1,0 +1,8 @@
+thead
+  tr
+    th
+      | No.
+    - all_attributes(model).each do |attr_name|
+      th
+        = attr_name
+    th Actions
