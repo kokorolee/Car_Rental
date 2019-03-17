@@ -1,4 +1,4 @@
 = render 'partials/index_top', model: model
 table.table.table-striped.table-hover
-  = render 'partials/index_thead', model: model
+  = render 'partials/index_thead', model: model.first if model.present?
   = render 'partials/index_tbody', model: model

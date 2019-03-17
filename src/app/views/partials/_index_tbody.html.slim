@@ -2,12 +2,12 @@ tbody
   - model.each_with_index do |record, index|
     tr
       td
-        = index + 1
-      - all_attributes(model).each do |attr_name|
-        td
-          = record[attr_name.to_sym]
-      td
         = link_to polymorphic_path([:edit, record]) do
           i.material-icons &#xE254
         = link_to polymorphic_url(record), method: :delete, data: { confirm: 'Are you sure?' } do
           i.material-icons &#xE872
+      td
+        = index + 1
+      - record.attributes.values.each do |v|
+        td
+          = v

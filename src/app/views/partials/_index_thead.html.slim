@@ -1,8 +1,9 @@
+p #{}
+
 thead
   tr
-    th
-      | No.
-    - all_attributes(model).each do |attr_name|
+    th Action
+    th No.
+    - (model.attribute_names - %w[created_at updated_at]).each do |attr_name|
       th
         = attr_name
-    th Actions

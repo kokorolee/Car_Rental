@@ -14,7 +14,8 @@
 #
 
 class User < ApplicationRecord
-  belongs_to :user_type, optional: true
-  has_many :drivers, dependent: :restrict_with_exception
-  has_many :members, dependent: :restrict_with_exception
+  scope :ignore_timestamps, -> { select(attribute_names - %w[created_at updated_at]) }
+  def self.type
+    %w(member customer passenger driver)
+  end
 end
