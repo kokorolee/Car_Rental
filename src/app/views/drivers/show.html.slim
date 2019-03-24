@@ -2,6 +2,30 @@ p#notice
   = notice
 p
   strong
+    | Name:
+  = @driver.name
+p
+  strong
+    | Gender:
+  = @driver.gender
+p
+  strong
+    | Dob:
+  = @driver.dob
+p
+  strong
+    | Address:
+  = @driver.address
+p
+  strong
+    | Tel:
+  = @driver.tel
+p
+  strong
+    | Identity no:
+  = @driver.identity_no
+p
+  strong
     | License no:
   = @driver.license_no
 p
@@ -17,5 +41,5 @@ p
     | Date expired:
   = @driver.date_expired
 = link_to 'Edit', edit_driver_path(@driver)
-|  | 
+|  |
 = link_to 'Back', drivers_path

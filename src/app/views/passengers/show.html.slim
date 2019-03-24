@@ -6,8 +6,24 @@ p
   = @passenger.name
 p
   strong
+    | Gender:
+  = @passenger.gender
+p
+  strong
     | Dob:
   = @passenger.dob
+p
+  strong
+    | Address:
+  = @passenger.address
+p
+  strong
+    | Tel:
+  = @passenger.tel
+p
+  strong
+    | Identity no:
+  = @passenger.identity_no
 = link_to 'Edit', edit_passenger_path(@passenger)
-|  | 
+|  |
 = link_to 'Back', passengers_path
