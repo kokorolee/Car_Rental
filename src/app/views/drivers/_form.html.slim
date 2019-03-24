@@ -1,20 +1,14 @@
-= form_with(model: driver, local: true) do |form|
-  - if driver.errors.any?
-      ul
-        - driver.errors.full_messages.each do |message|
-          li
-            = message
-  .form-group
-    = form.label :license_no
-    = form.text_field :license_no, class: 'form-control'
-  .form-group
-    = form.label :class_license
-    = form.text_field :class_license, class: 'form-control'
-  .form-group
-    = form.label :date_issue
-    = form.date_select :date_issue, class: 'form-control'
-  .form-group
-    = form.label :date_expired
-    = form.date_select :date_expired, class: 'form-control'
-  .actions
-    = form.submit
+= simple_form_for(@driver) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    // user info
+    = render '/users/basic_info', f: f
+    // driver info
+    = f.input :license_no
+    = f.input :class_license
+    = f.input :date_issue
+    = f.input :date_expired
+  .form-actions
+    = f.button :submit

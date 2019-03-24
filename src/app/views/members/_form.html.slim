@@ -1,9 +1,8 @@
-= form_with(model: member, local: true) do |form|
-  - if member.errors.any?
-    #error_explanation
-      ul
-        - member.errors.full_messages.each do |message|
-          li
-            = message
-  .actions
-    = form.submit
+= simple_form_for(@member) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = render '/users/basic_info', f: f
+  .form-actions
+    = f.button :submit

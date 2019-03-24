@@ -1,18 +1,11 @@
-= form_with(model: car_model, local: true) do |form|
-  - if car_model.errors.any?
-    #error_explanation
-      ul
-        - car_model.errors.full_messages.each do |message|
-          li
-            = message
-  .form-group
-    = form.label :car_brands
-    = form.collection_select :car_brand_id, CarBrand.all, :id, :name, {:include_blank => 'Select car brand'}, {:class => 'form-control'}
-  .form-group
-    = form.label :name
-    = form.text_field :name, class: 'form-control'
-  .form-group
-    = form.label :quantity_of_seat
-    = form.number_field :quantity_of_seat, class: 'form-control'
-  .actions
-    = form.submit
+= simple_form_for(@car_model) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.label :car_brands
+    = f.collection_select :car_brand_id, CarBrand.all, :id, :name, {:include_blank => 'Select car brand'}, {:class => 'form-control'}
+    = f.input :name, class: 'form-control'
+    = f.input :quantity_of_seat, class: 'form-control'
+  .form-actions
+    = f.button :submit

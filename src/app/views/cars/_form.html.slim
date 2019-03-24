@@ -1,24 +1,12 @@
-= form_with(model: car, local: true) do |form|
-  - if car.errors.any?
-    #error_explanation
-      ul
-        - car.errors.full_messages.each do |message|
-          li
-            = message
-  .form-group
-    = form.label :car_number_plate
-    = form.text_field :car_number_plate, class: 'form-control'
-  .form-group
-    = form.label :origin_price
-    = form.text_field :origin_price, class: 'form-control'
-  .form-group
-    = form.label :status
-    = form.text_field :status, class: 'form-control'
-  .form-group
-    = form.label :rental_price
-    = form.text_field :rental_price, class: 'form-control'
-  .form-group
-    = form.label :rent_status
-    = form.check_box :rent_status, class: 'form-control'
-  .actions
-    = form.submit
+= simple_form_for(@car) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :car_number_plate
+    = f.input :origin_price
+    = f.input :status
+    = f.input :rental_price
+    = f.input :rent_status, collection: Car.rent_statuses.keys, include_blank: 'Select rent status'
+  .form-actions
+    = f.button :submit

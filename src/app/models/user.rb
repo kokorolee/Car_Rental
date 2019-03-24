@@ -14,8 +14,20 @@
 #
 
 class User < ApplicationRecord
-  scope :ignore_timestamps, -> { select(attribute_names - %w[created_at updated_at]) }
+  validates :name, :gender, :dob, :address, :tel, :identity_no, presence: true
+  validates :name, length: { maximum: Constant::NAME_LENGTH }
+  validates :address, length: { maximum: Constant::ADDR_LENGTH }
+  validates :tel, :identity_no, length: { maximum: Constant::TEL_ID_LENGTH }
+  validates :tel, format: { with: Constant::REX_PHONE }
+  validate :in_allow_age_rage?
+
+  enum gender: [:male, :female]
   def self.type
     %w(member customer passenger driver)
+  end
+
+  def in_allow_age_rage?
+    return errors.add(:dob, 'Can\'t be under 18 years old') if dob > Date.today.year - 18
+    return errors.add(:dob, 'Can\'t be over 75 years old') if dob < Date.today.year - 75
   end
 end

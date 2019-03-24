@@ -1,0 +1,2 @@
+class Investment < Contract
+end

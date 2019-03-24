@@ -1,14 +1,8 @@
-= form_with(model: passenger, local: true) do |form|
-  - if passenger.errors.any?
-      ul
-        - passenger.errors.full_messages.each do |message|
-          li
-            = message
-  .form-group
-    = form.label :name
-    = form.text_field :name, class: 'form-control'
-  .form-group
-    = form.label :dob
-    = form.date_select :dob, class: 'form-control'
-  .actions
-    = form.submit
+= simple_form_for(@passenger) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = render '/users/basic_info', f: f
+  .form-actions
+    = f.button :submit

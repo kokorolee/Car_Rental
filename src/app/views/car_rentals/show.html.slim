@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Type:
+  = @car_rental.type
+p
+  strong Start date:
+  = @car_rental.start_date
+p
+  strong End date:
+  = @car_rental.end_date
+p
+  strong Price:
+  = @car_rental.price
+p
+  strong Discount:
+  = @car_rental.discount
+
+=> link_to 'Edit', edit_car_rental_path(@car_rental)
+'|
+=< link_to 'Back', car_rentals_path

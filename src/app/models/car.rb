@@ -22,4 +22,5 @@ class Car < ApplicationRecord
   validates :status, presence: true
   validates :rental_price, presence: true
   validates :rent_status, presence: true
+  enum rent_status: [ :rented, :not_rented ]
 end
