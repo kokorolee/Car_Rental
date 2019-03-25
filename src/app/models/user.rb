@@ -27,7 +27,6 @@ class User < ApplicationRecord
   end
 
   def in_allow_age_rage?
-    binding.pry
     return errors.add(:dob, 'Can\'t be under 18 years old') if dob.year > Date.today.year - 17
     return errors.add(:dob, 'Can\'t be over 75 years old') if dob.year < Date.today.year - 74
   end

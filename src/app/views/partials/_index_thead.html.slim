@@ -6,4 +6,4 @@ thead
     th No.
     - (model.attribute_names - %w[created_at updated_at]).each do |attr_name|
       th
-        = attr_name
+        = attr_name.titleize

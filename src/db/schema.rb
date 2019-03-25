@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_175637) do
+ActiveRecord::Schema.define(version: 2019_03_25_062038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,13 +56,12 @@ ActiveRecord::Schema.define(version: 2019_03_24_175637) do
 
   create_table "cars", force: :cascade do |t|
     t.string "car_number_plate", limit: 15
-    t.decimal "origin_price", precision: 5, scale: 2
     t.string "status"
-    t.decimal "rental_price", precision: 5, scale: 2
     t.boolean "rent_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "car_model_id"
+    t.decimal "rental_price", precision: 20, scale: 2
     t.index ["car_model_id"], name: "index_cars_on_car_model_id"
   end
 
