@@ -15,12 +15,10 @@
 class Car < ApplicationRecord
   belongs_to :car_model
   has_many :rented_cars, dependent: :destroy
-  has_many :drivers, dependent: :restrict_with_exception
+  has_many :drivers
 
-  validates :car_number_plate, length: { maximum: 15 }, presence: true
-  validates :origin_price, presence: true
-  validates :status, presence: true
-  validates :rental_price, presence: true
-  validates :rent_status, presence: true
+  validates :car_number_plate, length: { maximum: 15 }
+  validates :status, :rental_price, :rent_status, :car_number_plate, presence: true
+  validates :rental_price, length: { in: 0..20 }
   enum rent_status: [ :rented, :not_rented ]
 end
