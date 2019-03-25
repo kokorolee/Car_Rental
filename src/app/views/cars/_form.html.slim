@@ -1,0 +1,12 @@
+= simple_form_for(@car) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :car_number_plate
+    = f.input :origin_price
+    = f.input :status
+    = f.input :rental_price
+    = f.input :rent_status, collection: Car.rent_statuses.keys, include_blank: 'Select rent status'
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,29 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @member.name
+p
+  strong
+    | Gender:
+  = @member.gender
+p
+  strong
+    | Dob:
+  = @member.dob
+p
+  strong
+    | Address:
+  = @member.address
+p
+  strong
+    | Tel:
+  = @member.tel
+p
+  strong
+    | Identity no:
+  = @member.identity_no  
+= link_to 'Edit', edit_member_path(@member)
+|  |
+= link_to 'Back', members_path

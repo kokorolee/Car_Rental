@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @price_list.name
+p
+  strong
+    | Price:
+  = @price_list.price
+= link_to 'Edit', edit_price_list_path(@price_list)
+|  | 
+= link_to 'Back', price_lists_path

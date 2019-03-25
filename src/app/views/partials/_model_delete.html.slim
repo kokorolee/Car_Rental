@@ -1,0 +1,14 @@
+#deleteEmployeeModal.modal.fade
+  .modal-dialog
+    .modal-content
+      form
+        .modal-header
+          h4.modal-title Delete Employee
+          button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+        .modal-body
+          p Are you sure you want to delete these Records?
+          p.text-warning
+            small This action cannot be undone.
+        .modal-footer
+          input.btn.btn-default data-dismiss="modal" type="button" value="Cancel" /
+          input.btn.btn-danger type="submit" value="Delete" /

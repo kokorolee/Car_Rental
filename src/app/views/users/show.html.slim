@@ -1,0 +1,29 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @user.name
+p
+  strong
+    | Gender:
+  = @user.gender
+p
+  strong
+    | Dob:
+  = @user.dob
+p
+  strong
+    | Address:
+  = @user.address
+p
+  strong
+    | Tel:
+  = @user.tel
+p
+  strong
+    | Identity no:
+  = @user.identity_no
+= link_to 'Edit', edit_user_path(@user)
+|  | 
+= link_to 'Back', users_path

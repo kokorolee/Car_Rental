@@ -1,0 +1,6 @@
+= f.input :name
+= f.input :gender, collection: User.genders.keys, include_blank: 'Select gender'
+= f.input :dob, start_year: Date.today.year - 75, end_year: Date.today.year
+= f.input :address
+= f.input :tel
+= f.input :identity_no

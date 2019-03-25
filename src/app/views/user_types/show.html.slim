@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | User type:
+  = @user_type.user_type
+p
+  strong
+    | Notes:
+  = @user_type.notes
+= link_to 'Edit', edit_user_type_path(@user_type)
+|  | 
+= link_to 'Back', user_types_path

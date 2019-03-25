@@ -1,0 +1,11 @@
+= simple_form_for(@car_model) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.label :car_brands
+    = f.collection_select :car_brand_id, CarBrand.all, :id, :name, {:include_blank => 'Select car brand'}, {:class => 'form-control'}
+    = f.input :name, class: 'form-control'
+    = f.input :quantity_of_seat, class: 'form-control'
+  .form-actions
+    = f.button :submit

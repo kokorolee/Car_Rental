@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Type:
+  = @investment.type
+p
+  strong Start date:
+  = @investment.start_date
+p
+  strong End date:
+  = @investment.end_date
+p
+  strong Price:
+  = @investment.price
+p
+  strong Discount:
+  = @investment.discount
+
+=> link_to 'Edit', edit_investment_path(@investment)
+'|
+=< link_to 'Back', investments_path

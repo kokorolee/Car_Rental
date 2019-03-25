@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title
+      | Src
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet" /
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /
+
+  body
+    nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
+      a.navbar-brand.col-sm-3.col-md-2.mr-0[href="#!"]
+        | CANVA
+      input.form-control.form-control-dark.w-100[type="text" placeholder="Search" aria-label="Search"]
+      ul.navbar-nav.px-3
+        li.nav-item.text-nowrap
+          - if admin_signed_in?
+            li
+              = link_to('Logout', destroy_admin_session_path, method: :delete)
+          - else
+            li
+              = link_to('Login', new_admin_session_path)
+    .container-fluid
+      .row
+        = render "layouts/sidebar", models: @models
+        main.col-md-8.ml-sm-auto.col-lg-9.pt-3.px-4[role="main"]
+          .container
+            .table-wrapper
+              = yield
+    script
+      |  feather.replace()
