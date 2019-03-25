@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope :admin_site do
+    resources :user_admins
     resources :members
     resources :users
     resources :price_lists
