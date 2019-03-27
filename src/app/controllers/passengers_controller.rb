@@ -4,7 +4,7 @@ class PassengersController < ApplicationController
   # GET /passengers
   # GET /passengers.json
   def index
-    @passengers = Passenger.all
+    @passengers = Passenger.page params[:page]
   end
 
   # GET /passengers/1

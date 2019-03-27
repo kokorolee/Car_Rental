@@ -4,13 +4,12 @@ class UserAdminsController < ApplicationController
   # GET /user_admins
   # GET /user_admins.json
   def index
-    @user_admins = UserAdmin.all
+    @user_admins = UserAdmin.page params[:page]
   end
 
   # GET /user_admins/1
   # GET /user_admins/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_admins/new
   def new
@@ -18,8 +17,7 @@ class UserAdminsController < ApplicationController
   end
 
   # GET /user_admins/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_admins
   # POST /user_admins.json
@@ -62,13 +60,14 @@ class UserAdminsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_admin
-      @user_admin = UserAdmin.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_admin_params
-      params.require(:user_admin).permit(:name, :gender, :dob, :address, :tel, :identity_no)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_admin
+    @user_admin = UserAdmin.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_admin_params
+    params.require(:user_admin).permit(:name, :gender, :dob, :address, :tel, :identity_no)
+  end
 end

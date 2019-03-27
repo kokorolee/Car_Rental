@@ -4,7 +4,7 @@ class CarModelsController < ApplicationController
   # GET /car_models
   # GET /car_models.json
   def index
-    @car_models = CarModel.all
+    @car_models = CarModel.page params[:page]
   end
 
   # GET /car_models/1

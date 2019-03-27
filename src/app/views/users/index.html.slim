@@ -6,7 +6,7 @@ p#notice
       .col-sm-6
         h2
           | Manage #{model_name.humanize}
-
-table.table.table-striped.table-hover
-  = render 'partials/index_thead', model: @users
-  = render 'partials/index_tbody', model: @users
+.table-responsive
+  table.table.table-striped.table-hover
+    = render 'partials/index_thead', model: @users
+    = render 'partials/index_tbody', model: @users

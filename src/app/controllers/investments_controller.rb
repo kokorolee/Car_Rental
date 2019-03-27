@@ -4,7 +4,7 @@ class InvestmentsController < ApplicationController
   # GET /investments
   # GET /investments.json
   def index
-    @investments = Investment.all
+    @investments = Investment.page params[:page]
   end
 
   # GET /investments/1

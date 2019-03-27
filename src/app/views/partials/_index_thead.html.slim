@@ -1,11 +1,8 @@
-p #{}
 - attributes_name = model.attribute_names - %w[created_at updated_at]
-- if model.class.name == ('UserAdmin' || 'Member'|| 'Passenger' || 'Customer')
-  - attributes_name = attributes_name - %w[license_no class_license date_issue date_expired]
 thead
   tr
     th Action
     th No.
-    - (attributes_name).each do |attr_name|
+    - attributes_name.each do |attr_name|
       th
         = attr_name.titleize

@@ -15,7 +15,6 @@ html
     nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
       a.navbar-brand.col-sm-3.col-md-2.mr-0[href="#!"]
         | CANVA
-      input.form-control.form-control-dark.w-100[type="text" placeholder="Search" aria-label="Search"]
       ul.navbar-nav.px-3
         li.nav-item.text-nowrap
           - if admin_signed_in?
@@ -26,8 +25,8 @@ html
               = link_to('Login', new_admin_session_path)
     .container-fluid
       .row
-        = render "layouts/sidebar", models: @models
-        main.col-md-8.ml-sm-auto.col-lg-9.pt-3.px-4[role="main"]
+        = render "layouts/sidebar", models: @models if admin_signed_in?
+        main.col-md-10.ml-sm-auto.col-lg-10.pt-3.px-4[role="main"]
           .container
             .table-wrapper
               = yield

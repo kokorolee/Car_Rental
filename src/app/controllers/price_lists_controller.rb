@@ -4,7 +4,7 @@ class PriceListsController < ApplicationController
   # GET /price_lists
   # GET /price_lists.json
   def index
-    @price_lists = PriceList.all
+    @price_lists = PriceList.page params[:page]
   end
 
   # GET /price_lists/1
