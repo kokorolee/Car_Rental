@@ -19,3 +19,7 @@
 //= require admin/global
 
 //= require_tree .
+
+$(document).ready(function() {
+  $("#dttb").dataTable();
+});

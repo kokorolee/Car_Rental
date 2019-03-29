@@ -4,7 +4,7 @@ class UserAdminsController < ApplicationController
   # GET /user_admins
   # GET /user_admins.json
   def index
-    @user_admins = UserAdmin.page params[:page]
+    @user_admins = UserAdmin.ignore_fields_user.page params[:page]
   end
 
   # GET /user_admins/1

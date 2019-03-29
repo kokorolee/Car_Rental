@@ -1,6 +1,6 @@
 = render 'partials/index_top', model: model
 .table-responsive
-  table.table.table-striped.table-hover
+  table.table.table-striped.table-hover#dttb
     = render 'partials/index_thead', model: model.first if model.present?
     = render 'partials/index_tbody', model: model
 = paginate model
