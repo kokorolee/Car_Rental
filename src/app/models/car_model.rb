@@ -17,4 +17,5 @@ class CarModel < ApplicationRecord
   validates :name, length: { maximum: 20 }, presence: true
   validates :quantity_of_seat, presence: true
   validates :quantity_of_seat, numericality: { less_than_or_equal_to: 45, greater_than_or_equal_to: 2 }
+  enum quantity_of_seat: %i[2 4 5 7 9 16 25 45]
 end

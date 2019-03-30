@@ -15,6 +15,7 @@ class CarRentalsController < ApplicationController
   # GET /car_rentals/new
   def new
     @car_rental = CarRental.new
+    @cars = Car.all
   end
 
   # GET /car_rentals/1/edit

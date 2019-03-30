@@ -21,4 +21,5 @@ class Car < ApplicationRecord
   validates :status, :rental_price, :rent_status, :car_number_plate, presence: true
   validates :rental_price, length: { in: 0..20 }
   enum rent_status: [ :rented, :not_rented ]
+
 end

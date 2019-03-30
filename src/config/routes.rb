@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   scope :admin_site do
-    resources :user_admins
-    resources :members
     resources :users
-    resources :price_lists
-    resources :passengers
+    resources :user_admins
     resources :customers
+    resources :members
+    resources :passengers
     resources :drivers
-    resources :cars
-    resources :car_models
     resources :car_brands
+    resources :car_models
+    resources :cars
+    # resources :price_lists
+    resources :quantity_of_seats
     resources :investments
     resources :car_rentals
   end

@@ -14,6 +14,7 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
+    @quantity_of_seat = QuantityOfSeat.pluck(:quantity_of_seat)
   end
 
   # GET /cars/1/edit
@@ -23,6 +24,7 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
+    p car_params
     respond_to do |format|
       if @car.save
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
@@ -62,6 +64,7 @@ class CarsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def car_params
-    params.require(:car).permit(:car_number_plate, :origin_price, :status, :rental_price, :rent_status, :car_model_id)
+    params.require(:car).permit(:car_number_plate, :origin_price, :status, :rental_price, :rent_status, :car_model_id,
+                                :quantity_of_seat_id)
   end
 end

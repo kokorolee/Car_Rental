@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Quantity of seat:
+  = @quantity_of_seat.quantity_of_seat
+
+=> link_to 'Edit', edit_quantity_of_seat_path(@quantity_of_seat)
+'|
+=< link_to 'Back', quantity_of_seats_path

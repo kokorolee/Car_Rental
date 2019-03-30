@@ -15,6 +15,7 @@ class InvestmentsController < ApplicationController
   # GET /investments/new
   def new
     @investment = Investment.new
+    @cars = Car.all
   end
 
   # GET /investments/1/edit
@@ -69,6 +70,11 @@ class InvestmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def investment_params
-      params.require(:investment).permit(:type, :start_date, :end_date, :price, :discount)
+      params.require(:investment).permit(:type, :start_date, :end_date, :price, :discount,
+                                         :car_id, :member_id, :created_user_id)
+    end
+
+    def build_rented_car
+      @book.tags.build @new_tags
     end
 end
