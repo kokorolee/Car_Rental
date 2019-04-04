@@ -11,6 +11,6 @@ tbody
       - record.attributes.each do |k, v|
         td
           - if record.class == Car
-            = v.is_a?(Numeric) ? ActionController::Base.helpers.number_to_currency(v, unit: "VND", format: "%n %u", precision: 0) : v
+            = v.is_a?(Numeric) &&  k!= 'id' && k != 'car_model_id' ? ActionController::Base.helpers.number_to_currency(v, unit: "VND", format: "%n %u", precision: 0) : v
           - else
             = v

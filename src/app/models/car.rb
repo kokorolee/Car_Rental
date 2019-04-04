@@ -17,6 +17,8 @@ class Car < ApplicationRecord
   belongs_to :car_model
   has_many :rented_cars, dependent: :destroy
   has_many :drivers
+  has_many :investments
+  has_many :car_rentals
 
   validates :car_number_plate, length: { maximum: 15 }
   validates :status, :rental_price, :rent_status, :car_number_plate, presence: true

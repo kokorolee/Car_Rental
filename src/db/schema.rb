@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_29_183856) do
+ActiveRecord::Schema.define(version: 2019_04_04_175333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,16 +44,6 @@ ActiveRecord::Schema.define(version: 2019_03_29_183856) do
     t.index ["car_brand_id"], name: "index_car_models_on_car_brand_id"
   end
 
-  create_table "car_rental_contracts", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
-    t.boolean "rent_driver"
-    t.decimal "price"
-    t.string "unit_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cars", force: :cascade do |t|
     t.string "car_number_plate", limit: 15
     t.string "status"
@@ -70,13 +60,15 @@ ActiveRecord::Schema.define(version: 2019_03_29_183856) do
     t.string "type"
     t.date "start_date"
     t.date "end_date"
-    t.decimal "price", precision: 10, scale: 2
     t.decimal "discount", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "created_user_id"
     t.bigint "member_id"
     t.bigint "car_id"
+    t.bigint "admin_id"
+    t.decimal "price", precision: 20, scale: 2
+    t.index ["admin_id"], name: "index_contracts_on_admin_id"
     t.index ["car_id"], name: "index_contracts_on_car_id"
     t.index ["created_user_id"], name: "index_contracts_on_created_user_id"
     t.index ["member_id"], name: "index_contracts_on_member_id"
@@ -87,14 +79,6 @@ ActiveRecord::Schema.define(version: 2019_03_29_183856) do
     t.string "class_license"
     t.date "date_issue"
     t.date "date_expired"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "investment_contracts", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
-    t.float "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -137,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_03_29_183856) do
     t.string "type"
   end
 
+  add_foreign_key "contracts", "admins"
   add_foreign_key "contracts", "users", column: "created_user_id"
   add_foreign_key "contracts", "users", column: "member_id"
 end

@@ -4,6 +4,13 @@
 
   .form-group
     = render 'contract/basic_contract', f: f
+    = f.label :car_id
+    br
+    = select("investment", "car_id", Car.all.collect {|p| [ p.car_number_plate, p.id ] }, { include_blank: 'Select car number plate' })
+
+    = f.label :member_id
+    br
+    = select("investment", "member_id", Member.all.collect {|p| [ p.name, p.id ] }, { include_blank: 'Select member' })
 
   .form-actions
     = f.button :submit

@@ -19,4 +19,5 @@
 #
 
 class Member < User
+  has_many :investments
 end

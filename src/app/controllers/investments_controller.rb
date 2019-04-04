@@ -15,7 +15,7 @@ class InvestmentsController < ApplicationController
   # GET /investments/new
   def new
     @investment = Investment.new
-    @cars = Car.all
+    @car = @investment&.car
   end
 
   # GET /investments/1/edit
@@ -26,9 +26,9 @@ class InvestmentsController < ApplicationController
   # POST /investments.json
   def create
     @investment = Investment.new(investment_params)
-
+    @investment = current_admin.investments.new investment_params
     respond_to do |format|
-      if @investment.save
+      if @investment.save!
         format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
         format.json { render :show, status: :created, location: @investment }
       else
@@ -71,7 +71,7 @@ class InvestmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def investment_params
       params.require(:investment).permit(:type, :start_date, :end_date, :price, :discount,
-                                         :car_id, :member_id, :created_user_id)
+                                         :car_id, :member_id, :car_id, :member_id)
     end
 
     def build_rented_car
