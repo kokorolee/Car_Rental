@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include ActionView::Helpers::NumberHelper
+  
   def all_routes
     Rails.application.routes.routes.map do |route|
       { alias: route.name, controller: route.defaults[:controller], action: route.defaults[:action] }

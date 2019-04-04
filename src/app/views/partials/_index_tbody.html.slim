@@ -8,6 +8,9 @@ tbody
           i.material-icons &#xE872
       td
         = index + 1
-      - record.attributes.values.each do | v|
+      - record.attributes.each do |k, v|
         td
-          = v
+          - if record.class == Car
+            = v.is_a?(Numeric) ? ActionController::Base.helpers.number_to_currency(v, unit: "VND", format: "%n %u", precision: 0) : v
+          - else
+            = v

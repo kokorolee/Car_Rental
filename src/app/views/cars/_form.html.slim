@@ -6,6 +6,7 @@
     = f.association :car_model, include_blank: 'Select Car model'
     = f.input :car_number_plate
     = f.input :status
+    = f.input :origin_price
     = f.input :rental_price
     = f.input :rent_status, collection: Car.rent_statuses.keys, include_blank: 'Select rent status'
   .form-actions

@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_03_29_183856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "car_model_id"
+    t.decimal "origin_price", precision: 20, scale: 2
     t.decimal "rental_price", precision: 20, scale: 2
     t.index ["car_model_id"], name: "index_cars_on_car_model_id"
   end

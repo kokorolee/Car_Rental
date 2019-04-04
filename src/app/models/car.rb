@@ -4,12 +4,13 @@
 #
 #  id               :bigint(8)        not null, primary key
 #  car_number_plate :string(15)
-#  origin_price     :decimal(5, 2)
 #  status           :string
-#  rental_price     :decimal(5, 2)
-#  rent_status      :boolean          default(FALSE)
+#  rent_status      :boolean          default(NULL)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  car_model_id     :bigint(8)
+#  origin_price     :decimal(20, 2)
+#  rental_price     :decimal(20, 2)
 #
 
 class Car < ApplicationRecord
