@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope :admin_site do
     resources :users
-    resources :user_admins
+    # resources :user_admins
     resources :customers
     resources :members
     resources :passengers
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :car_models
     resources :cars
     # resources :price_lists
-    resources :quantity_of_seats
+    # resources :quantity_of_seats
     resources :investments
     resources :car_rentals
   end

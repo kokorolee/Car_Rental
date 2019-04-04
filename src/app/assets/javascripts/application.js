@@ -17,7 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require admin/global
-
+//= require datatables
 //= require_tree .
 
 $(document).ready(function() {
